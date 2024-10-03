@@ -27,4 +27,9 @@ app.get('/', (req, res) => {
         res.status(500).send('Error fetching data from the external API');
     }
 });
+
+
+
+
+
   app.listen(4000, () => console.log('Example app is listening on port 4000.'));
