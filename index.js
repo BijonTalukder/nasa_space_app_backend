@@ -145,6 +145,23 @@ app.get('/getfarthestplanet', async (req, res) => {
         res.status(500).send('Error fetching data from the external API');
     }
 });
+
+app.get('/years', async (req, res) => {
+    try {
+      
+        //const apiUrl ='https://exoplanetarchive.ipac.caltech.edu/TAP/sync?query=select+objectid,pl_name,pl_masse,pl_name,pl_orbper,sy_dist,st_logg+from+pscomppars+order+by+sy_dist+asc&format=json'
+
+        const apiUrl =`https://exoplanetarchive.ipac.caltech.edu/TAP/sync?query=select+distinct+disc_year+from+pscomppars+order+by+disc_year+asc&format=json`
+
+        const response = await axios.get(apiUrl);
+
+     
+        res.json(response.data);
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Error fetching data from the external API');
+    }
+});
 //listen
 
   app.listen(4000, () => console.log('Example app is listening on port 4000.'));
