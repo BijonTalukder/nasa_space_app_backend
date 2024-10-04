@@ -32,7 +32,7 @@ app.get('/', (req, res) => {
 app.get('/getplanets', async (req, res) => {
     try {
       
-        const apiUrl ='https://exoplanetarchive.ipac.caltech.edu/TAP/sync?query=select+objectid,pl_name,pl_masse,pl_name,pl_orbper,sy_dist,st_logg,pl_rade,pl_bmasse+from+pscomppars+order+by+sy_dist+asc&format=json'
+        const apiUrl ='https://exoplanetarchive.ipac.caltech.edu/TAP/sync?query=select+objectid,pl_name,pl_masse,pl_name,discoverymethod,sy_dist,disc_year,pl_rade,pl_bmasse+from+pscomppars+order+by+sy_dist+asc&format=json'
      
         const response = await axios.get(apiUrl);
 
